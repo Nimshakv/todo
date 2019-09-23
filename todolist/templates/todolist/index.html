@@ -1,0 +1,26 @@
+{% extends 'todolist/user_base.html' %}
+
+{% block content %}
+
+{% if all_items %}
+<table class="table table-bordered">
+    {% for things in all_items %}
+            {% if things.completed %}
+                <tr>
+                    <td class="striker"><a href="{% url 'todolist:edit' things.id %}">{{ things.item }}</a></td>
+                    <td><center><a href="{% url 'todolist:uncross' things.id %}">Uncross</a></center></td>
+                    <td><center><a href="{% url 'todolist:delete' things.id %}">Delete</a></center></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td><a href="{% url 'todolist:edit' things.id %}">{{ things.item }}</a></td>
+                    <td><center><a href="{% url 'todolist:cross_off' things.id %}">Cross Off</a></center></td>
+                    <td><center><a href="{% url 'todolist:delete' things.id %}">Delete</a></center></td>
+                </tr>
+            {% endif %}
+
+
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

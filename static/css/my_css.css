@@ -1,0 +1,9 @@
+.striker {
+    text-decoration: line-through;
+}
+
+.navbar .logout-btn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+}
